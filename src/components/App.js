@@ -1,9 +1,12 @@
+import AppHeader from "./AppHeader";
 import "./App.css";
 
 const App = () => {
   return (
     <div className="App">
-      <h1>My Favorites</h1>
+      <main>
+        <AppHeader />
+      </main>
     </div>
   );
 };
