@@ -1,11 +1,16 @@
 import AppHeader from "./AppHeader";
-import "./App.css";
+import AppCardList from "./AppCardList";
+import FavsContextProvider from "../contexts/FavsContext";
+import "../styles/App.css";
 
 const App = () => {
   return (
     <div className="App">
       <main>
-        <AppHeader />
+        <FavsContextProvider>
+          <AppHeader />
+          <AppCardList />
+        </FavsContextProvider>
       </main>
     </div>
   );
