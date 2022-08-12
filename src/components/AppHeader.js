@@ -1,25 +1,32 @@
+import { useContext, useState, useEffect } from "react";
+import { FavsContext } from "../contexts/FavsContext";
+import { Button, Modal } from "react-bootstrap";
 import AddIcon from "@mui/icons-material/Add";
-import Button from "react-bootstrap/Button";
-import Modal from "react-bootstrap/Modal";
 import CardAddForm from "./CardAddForm";
-import { useState } from "react";
 import "../styles/AppHeader.css";
 
-const AppHeader = ({ fav }) => {
+const AppHeader = () => {
+  const { sortedFavs } = useContext(FavsContext);
+
   const [show, setShow] = useState(false);
-  const handleHide = () => setShow(false);
+
+  const handleClose = () => setShow(false);
   const handleShow = () => setShow(true);
 
-  return (
-    <header className="App-header p-4">
-      <h1>my favorites...</h1>
+  useEffect(() => {
+    handleClose();
+  }, [sortedFavs]);
 
-      <Button variant="primary" className="m-2" onClick={handleShow}>
+  return (
+    <header className="App-header p-3">
+      <h1>My Favorites...</h1>
+
+      <Button variant="primary" className="px-3 mx-3" onClick={handleShow}>
         <AddIcon fontSize="small" />
         <span>Add New Favorite Card</span>
       </Button>
 
-      <Modal show={show} onHide={handleHide}>
+      <Modal show={show} onHide={handleClose}>
         <Modal.Header closeButton>
           <Modal.Title>Add Favorite's Information</Modal.Title>
         </Modal.Header>
@@ -27,7 +34,7 @@ const AppHeader = ({ fav }) => {
           <CardAddForm />
         </Modal.Body>
         <Modal.Footer>
-          <Button variant="secondary" onClick={handleHide}>
+          <Button variant="secondary" onClick={handleClose}>
             Close
           </Button>
         </Modal.Footer>
