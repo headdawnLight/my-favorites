@@ -9,8 +9,21 @@
   align-items: center;
   justify-content: space-evenly;
 }
+
 .App-header h1 {
   font-family: "Oleo Script Swash Caps", cursive;
   font-size: 2.5rem;
   margin-top: 0.5rem;
+  margin-bottom: 0rem;
+  text-align: center;
+}
+
+@media (max-width: 300px) {
+  .App-header h1 {
+    font-size: 2rem;
+  }
+
+  #header-btn {
+    font-size: 0.8rem !important;
+  }
 }

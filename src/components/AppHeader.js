@@ -18,17 +18,17 @@ const AppHeader = () => {
   }, [sortedFavs]);
 
   return (
-    <header className="App-header p-3">
+    <header className="App-header p-2">
       <h1>My Favorites...</h1>
 
-      <Button variant="primary" className="px-3 mx-3" onClick={handleShow}>
+      <Button variant="primary" className="m-2" onClick={handleShow}>
         <AddIcon fontSize="small" />
-        <span>Add New Favorite Card</span>
+        <span id="header-btn">Add New Card</span>
       </Button>
 
       <Modal show={show} onHide={handleClose}>
         <Modal.Header closeButton>
-          <Modal.Title>Add Favorite's Information</Modal.Title>
+          <Modal.Title>Add Card Info</Modal.Title>
         </Modal.Header>
         <Modal.Body>
           <CardAddForm />
