@@ -1,5 +1,5 @@
+import { Card, Modal, Button, ListGroup } from "react-bootstrap";
 import { useContext, useState, useEffect } from "react";
-import { Button, Modal, Card, OverlayTrigger, Tooltip } from "react-bootstrap";
 import { FavsContext } from "../contexts/FavsContext";
 import CardEditForm from "./CardEditForm";
 import EditIcon from "@mui/icons-material/Edit";
@@ -9,60 +9,58 @@ const AppCard = ({ fav }) => {
   const { dispatch } = useContext(FavsContext);
 
   const [show, setShow] = useState(false);
-  const handleHide = () => setShow(false);
+  const handleClose = () => setShow(false);
   const handleShow = () => setShow(true);
 
   useEffect(() => {
-    handleHide();
+    handleClose();
   }, [fav]);
 
   return (
     <>
-      <Card>
+      <Card className="h-100 w-100 shadow">
         <Card.Img
           variant="top"
           src={fav.image}
           alt="fav_image"
-          className="img-fluid"
+          class="border-bottom"
+          style={{ height: "240px" }}
         />
+
         <Card.Body>
-          <Card.Title>{fav.title}</Card.Title>
-          <Card.Text>{fav.items}</Card.Text>
-          <OverlayTrigger
-            overlay={<Tooltip id={`tooltip-top`}>Delete</Tooltip>}
-          >
+          <Card.Title className="text-center fw-bold">{fav.title}</Card.Title>
+
+          <ListGroup as="ol" numbered>
+            <ListGroup.Item as="li">{fav.fav1}</ListGroup.Item>
+            <ListGroup.Item as="li">{fav.fav2}</ListGroup.Item>
+            <ListGroup.Item as="li">{fav.fav3}</ListGroup.Item>
+          </ListGroup>
+
+          <div className="card-buttons text-center mt-3">
+            <Button variant="warning" className="me-1" onClick={handleShow}>
+              <EditIcon fontSize="small" />
+              <span>Update</span>
+            </Button>
+
             <Button
               variant="danger"
-              className="float-end"
               onClick={() => dispatch({ type: "remove_fav", id: fav.id })}
             >
               <DeleteIcon fontSize="small" />
+              <span>Delete</span>
             </Button>
-          </OverlayTrigger>
-          <OverlayTrigger overlay={<Tooltip id={`tooltip-top`}>Edit</Tooltip>}>
-            <Button
-              variant="warning"
-              className="float-end"
-              onClick={handleShow}
-            >
-              <EditIcon fontSize="small" />
-            </Button>
-          </OverlayTrigger>
+          </div>
         </Card.Body>
       </Card>
 
-      <Modal show={show} onHide={handleHide}>
+      <Modal show={show} onHide={handleClose}>
         <Modal.Header closeButton>
-          <Modal.Title>Update Your Favorite Card</Modal.Title>
+          <Modal.Title>Update Card Info</Modal.Title>
         </Modal.Header>
+
         <Modal.Body>
           <CardEditForm theFav={fav} />
         </Modal.Body>
-        <Modal.Footer>
-          <Button variant="secondary" onClick={handleHide}>
-            Close
-          </Button>
-        </Modal.Footer>
       </Modal>
     </>
   );
