@@ -1,7 +1,6 @@
 import { useContext } from "react";
 import { FavsContext } from "../contexts/FavsContext";
 import AppCard from "./AppCard";
-import "../styles/AppCardList.css";
 
 const AppCardList = () => {
   const { sortedFavs } = useContext(FavsContext);
