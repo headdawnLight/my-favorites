@@ -33,11 +33,6 @@ const AppHeader = () => {
         <Modal.Body>
           <CardAddForm />
         </Modal.Body>
-        <Modal.Footer>
-          <Button variant="secondary" onClick={handleClose}>
-            Close
-          </Button>
-        </Modal.Footer>
       </Modal>
     </header>
   );
