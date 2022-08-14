@@ -13,7 +13,9 @@ const FavsContextProvider = (props) => {
             id: uuidv4(),
             image: action.fav.image,
             title: action.fav.title,
-            items: action.fav.items,
+            fav1: action.fav.fav1,
+            fav2: action.fav.fav2,
+            fav3: action.fav.fav3,
           },
         ];
 
