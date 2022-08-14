@@ -36,7 +36,7 @@ const AppCard = ({ fav }) => {
             <ListGroup.Item as="li">{fav.fav3}</ListGroup.Item>
           </ListGroup>
 
-          <div className="card-buttons text-center mt-3">
+          <div className="card-buttons float-end mt-3">
             <Button variant="warning" className="me-1" onClick={handleShow}>
               <EditIcon fontSize="small" />
               <span>Update</span>
@@ -55,7 +55,7 @@ const AppCard = ({ fav }) => {
 
       <Modal show={show} onHide={handleClose}>
         <Modal.Header closeButton>
-          <Modal.Title>Update Card Info</Modal.Title>
+          <Modal.Title>Card Information</Modal.Title>
         </Modal.Header>
 
         <Modal.Body>

@@ -23,12 +23,12 @@ const AppHeader = () => {
 
       <Button variant="primary" className="m-2" onClick={handleShow}>
         <AddIcon fontSize="small" />
-        <span id="header-btn">Add New Card</span>
+        <span id="header-btn">Create Fav Card</span>
       </Button>
 
       <Modal show={show} onHide={handleClose}>
         <Modal.Header closeButton>
-          <Modal.Title>Add Card Info</Modal.Title>
+          <Modal.Title>Card Information</Modal.Title>
         </Modal.Header>
         <Modal.Body>
           <CardAddForm />

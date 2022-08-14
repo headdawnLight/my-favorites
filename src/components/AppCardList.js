@@ -11,7 +11,7 @@ const AppCardList = () => {
       <div className="row mx-2 d-flex justify-content-center">
         {sortedFavs.map((fav) => (
           <div
-            className="col-lg-3 col-md-4 col-sm-6 col-10 mt-4 d-flex align-items-stretch"
+            className="col-xl-3 col-lg-4 col-md-6 col-sm-8 my-4"
             key={fav.id}
           >
             <AppCard fav={fav} />

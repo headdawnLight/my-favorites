@@ -38,7 +38,7 @@ const FavsContextProvider = (props) => {
     []
   );
 
-  const sortedFavs = favs.sort((a, b) => (a.name < b.name ? -1 : 1));
+  const sortedFavs = favs.sort((a, b) => (a.title < b.title ? -1 : 1));
 
   return (
     <FavsContext.Provider value={{ sortedFavs, dispatch }}>
