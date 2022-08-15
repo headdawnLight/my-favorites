@@ -2,11 +2,12 @@ import { useContext, useState, useEffect } from "react";
 import { FavsContext } from "../contexts/FavsContext";
 import { Button, Modal } from "react-bootstrap";
 import AddIcon from "@mui/icons-material/Add";
+import AppSearchBar from "./AppSearchBar";
 import CardAddForm from "./CardAddForm";
 import "../styles/AppHeader.css";
 
 const AppHeader = () => {
-  const { sortedFavs } = useContext(FavsContext);
+  const { sortedFavs, onChangeHandler } = useContext(FavsContext);
 
   const [show, setShow] = useState(false);
 
@@ -20,6 +21,8 @@ const AppHeader = () => {
   return (
     <header className="App-header p-2">
       <h1>My Favorites...</h1>
+
+      <AppSearchBar searchQuery={onChangeHandler} />
 
       <Button variant="primary" className="m-2" onClick={handleShow}>
         <AddIcon fontSize="small" />

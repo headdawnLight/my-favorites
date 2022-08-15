@@ -1,4 +1,4 @@
-import { createContext, useReducer } from "react";
+import { createContext, useReducer, useState } from "react";
 import { v4 as uuidv4 } from "uuid";
 
 export const FavsContext = createContext();
@@ -38,10 +38,18 @@ const FavsContextProvider = (props) => {
     []
   );
 
+  const [search, setSearch] = useState("");
+
+  const onChangeHandler = (event) => {
+    setSearch(event.target.value);
+  };
+
   const sortedFavs = favs.sort((a, b) => (a.title < b.title ? -1 : 1));
 
   return (
-    <FavsContext.Provider value={{ sortedFavs, dispatch }}>
+    <FavsContext.Provider
+      value={{ sortedFavs, search, onChangeHandler, dispatch }}
+    >
       {props.children}
     </FavsContext.Provider>
   );
