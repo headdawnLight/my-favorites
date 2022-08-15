@@ -15,6 +15,7 @@ const AppCardList = () => {
             } else if (fav.title.toLowerCase().includes(search.toLowerCase())) {
               return fav;
             }
+            return 0;
           })
           .map((fav) => (
             <div
