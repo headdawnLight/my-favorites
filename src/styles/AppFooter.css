@@ -1,0 +1,38 @@
+.App-footer {
+  width: 100%;
+  height: auto;
+  padding: 1rem;
+  color: black;
+  background-color: yellow;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.App-footer p {
+  margin: 0;
+  font-size: 1rem;
+  text-align: center;
+}
+
+.App-footer a {
+  margin-left: 1rem;
+}
+
+@media (max-width: 460px) {
+  .App-footer {
+    flex-direction: column;
+  }
+  .App-footer a {
+    margin-top: 0.5rem;
+  }
+}
+
+@media (max-width: 360px) {
+  .App-footer {
+    flex-direction: column;
+  }
+  .App-footer p {
+    font-size: 0.8rem;
+  }
+}
