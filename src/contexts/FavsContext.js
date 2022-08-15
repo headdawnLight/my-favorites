@@ -1,4 +1,4 @@
-import { createContext, useReducer, useState } from "react";
+import { createContext, useReducer, useState, useEffect } from "react";
 import { v4 as uuidv4 } from "uuid";
 
 export const FavsContext = createContext();
@@ -35,8 +35,17 @@ const FavsContextProvider = (props) => {
   const [favs, dispatch] = useReducer(
     reducer,
 
-    []
+    [],
+
+    () => {
+      const favs = localStorage.getItem("favs");
+      return favs ? JSON.parse(favs) : [];
+    }
   );
+
+  useEffect(() => {
+    localStorage.setItem("favs", JSON.stringify(favs));
+  });
 
   const [search, setSearch] = useState("");
 
