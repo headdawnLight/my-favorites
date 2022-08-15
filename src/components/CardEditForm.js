@@ -78,7 +78,7 @@ const CardEditForm = ({ theFav }) => {
       </Form.Group>
 
       <Button variant="success" type="submit" className="w-100 mt-3" block>
-        Update Card Information
+        Update Fav Card
       </Button>
     </Form>
   );

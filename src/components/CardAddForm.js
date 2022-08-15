@@ -22,7 +22,7 @@ const CardAddForm = () => {
   const handleSubmit = (e) => {
     e.preventDefault();
     dispatch({
-      type: "add_fav",
+      type: "create_fav",
       fav: {
         title,
         image,
@@ -90,7 +90,7 @@ const CardAddForm = () => {
       </Form.Group>
 
       <Button variant="success" type="submit" className="w-100 mt-3" block>
-        Create Card Information
+        Create Fav Card
       </Button>
     </Form>
   );

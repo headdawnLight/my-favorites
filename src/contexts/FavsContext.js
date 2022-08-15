@@ -6,7 +6,7 @@ export const FavsContext = createContext();
 const FavsContextProvider = (props) => {
   const reducer = (favs, action) => {
     switch (action.type) {
-      case "add_fav":
+      case "create_fav":
         return [
           ...favs,
           {
@@ -24,7 +24,7 @@ const FavsContextProvider = (props) => {
           fav.id === action.id ? action.updatedFav : fav
         );
 
-      case "remove_fav":
+      case "delete_fav":
         return favs.filter((fav) => fav.id !== action.id);
 
       default:

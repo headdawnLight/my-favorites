@@ -7,7 +7,7 @@
   flex-wrap: wrap;
   flex-direction: row;
   align-items: center;
-  justify-content: space-evenly;
+  justify-content: space-around;
 }
 
 .App-header h1 {
@@ -22,8 +22,14 @@
   .App-header h1 {
     font-size: 2rem;
   }
+}
 
+@media (max-width: 420px) {
+  .header-inputs {
+    display: flex;
+    flex-direction: column;
+  }
   #header-btn {
-    font-size: 0.8rem !important;
+    margin: 0.5rem 0 0 0 !important;
   }
 }

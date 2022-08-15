@@ -19,16 +19,21 @@ const AppHeader = () => {
   }, [sortedFavs]);
 
   return (
-    <header className="App-header p-2">
+    <header className="App-header shadow-sm p-2">
       <h1>My Favorites...</h1>
+      <div className="header-inputs d-flex m-2">
+        <AppSearchBar searchQuery={onChangeHandler} />
 
-      <AppSearchBar searchQuery={onChangeHandler} />
-
-      <Button variant="primary" className="m-2" onClick={handleShow}>
-        <AddIcon fontSize="small" />
-        <span id="header-btn">Create Fav Card</span>
-      </Button>
-
+        <Button
+          variant="primary"
+          id="header-btn"
+          className="ms-2"
+          onClick={handleShow}
+        >
+          <AddIcon fontSize="small" />
+          <span>Create Fav Card</span>
+        </Button>
+      </div>
       <Modal show={show} onHide={handleClose}>
         <Modal.Header closeButton>
           <Modal.Title>Card Information</Modal.Title>

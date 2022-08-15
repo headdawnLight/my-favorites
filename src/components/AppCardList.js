@@ -6,8 +6,8 @@ const AppCardList = () => {
   const { sortedFavs, search } = useContext(FavsContext);
 
   return (
-    <section id="Card-list-section">
-      <div className="row mx-2 d-flex justify-content-center">
+    <section className="Card-list-section min-vh-100">
+      <div className="row m-4 d-flex justify-content-center">
         {sortedFavs
           .filter((fav) => {
             if (search === "") {
@@ -18,7 +18,7 @@ const AppCardList = () => {
           })
           .map((fav) => (
             <div
-              className="col-xl-3 col-lg-4 col-md-6 col-sm-8 my-4"
+              className="col-xl-3 col-lg-4 col-md-6 col-sm-7 my-3"
               key={fav.id}
             >
               <AppCard fav={fav} />

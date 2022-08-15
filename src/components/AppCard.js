@@ -23,7 +23,7 @@ const AppCard = ({ fav }) => {
           variant="top"
           src={fav.image}
           alt="fav_image"
-          class="border-bottom"
+          className="border-bottom"
           style={{ height: "240px" }}
         />
 
@@ -36,7 +36,7 @@ const AppCard = ({ fav }) => {
             <ListGroup.Item as="li">{fav.fav3}</ListGroup.Item>
           </ListGroup>
 
-          <div className="card-buttons float-end mt-3">
+          <div className="card-buttons text-center mt-3">
             <Button variant="warning" className="me-1" onClick={handleShow}>
               <EditIcon fontSize="small" />
               <span>Update</span>
@@ -44,7 +44,7 @@ const AppCard = ({ fav }) => {
 
             <Button
               variant="danger"
-              onClick={() => dispatch({ type: "remove_fav", id: fav.id })}
+              onClick={() => dispatch({ type: "delete_fav", id: fav.id })}
             >
               <DeleteIcon fontSize="small" />
               <span>Delete</span>
